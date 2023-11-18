@@ -1,16 +1,15 @@
 import React from 'react';
 import { FormUser, LabelForm, InputUser } from './ContactForm.styled';
-import { nanoid } from 'nanoid';
 import { useState } from 'react';
-//import { useDispatch,  } from 'react-redux';
 import { addContact, } from 'components/redux/api';
- import { useDispatch, useSelector } from 'react-redux';
- import {  getConactFromState } from 'components/redux/contactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {  getConactFromState } from 'components/redux/contactSlice';
+
 export const ContactForm = () => {
   const [isName, setName] = useState('');
   const [isNumber, setNumber] = useState('');
  const contacts = useSelector(getConactFromState);
-  //console.log('contacts', contacts);
+
   const dispatch = useDispatch();
 
   const onChange = e => {
@@ -26,20 +25,18 @@ export const ContactForm = () => {
     setName('');
     setNumber('');
   };
+
   const submitForm = evt => {
     evt.preventDefault();
-    console.log('contacts', contacts)
      if (contacts.contactsUser.find(cont=>cont.name.toLowerCase() ===isName.toLowerCase()))
    {alert('Contact exist in the list');return;} 
-    // dispatch(addContact( 
+
      dispatch(addContact( 
       {
-      id: nanoid(),
       name: isName,
-      phone: isNumber,
+      number: isNumber,
     }
     ));
-   
     resetForm();
   };
   return (

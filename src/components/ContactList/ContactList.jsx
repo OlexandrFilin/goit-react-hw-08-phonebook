@@ -14,9 +14,12 @@ const {contactsUser, isLoading, error } = useSelector(getConactFromState);
 const filterCont  = useSelector(getFilter);
 
 const getFilterContacts = ()=>{
+
    if (!filterCont.filter) {
+    console.log('contactsUser', contactsUser)
     return contactsUser;
     }
+    console.log('contactsUser.filter  ', contactsUser.filter(contact=>contact.name.toUpperCase().includes(filterCont.filter.toUpperCase())))
  return contactsUser.filter(contact=>contact.name.toUpperCase().includes(filterCont.filter.toUpperCase())
  )
 }
@@ -25,6 +28,7 @@ const dispatch = useDispatch();
   const onRemoveContact =(id)=>{
     dispatch(deleteContact(id))
   }
+
    return (
     <>
     {isLoading && <p>Loading tasks...</p>}
@@ -36,7 +40,7 @@ const dispatch = useDispatch();
             <BtnDelCont type="button" onClick={() => onRemoveContact(el.id)}>
               del
             </BtnDelCont>
-            {el.name} : {el.phone}
+            {el.name} : {el.number}
           </ItemContLst>
         );
       })}
