@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/67.6f744950.chunk.css","mappings":"AAAA,yBACE,aAAc,CAEd,gBAAiB,CADjB,eAEF,CACA,wBACE,aAAc,CACd,cACF","sources":["components/Filter/Filter.module.css"],"sourcesContent":[".labelFltr {\n  display: block;\n  margin-top: 10px;\n  margin-left: 20px;\n}\n.inpfiltr {\n  display: block;\n  margin-top: 7px;\n}\n"],"names":[],"sourceRoot":""}
