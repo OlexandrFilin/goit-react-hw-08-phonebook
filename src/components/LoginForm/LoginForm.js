@@ -23,10 +23,19 @@ const dispatch = useDispatch();
    const hanhdleClickDefault =(e)=>{
 
      const frm =document.querySelector(FormLoginSt);
-     console.log('frm', frm)
-      frm.elements.email.value = 'alexFil@ukr.net';
-      frm.elements.password.value ='123456789';
+  
+
+      frm.elements.email.value = 'Irina19672@gmail.com';
+      frm.elements.password.value ='ira!(^&fil';
    }
+   const hanhdleClickDefault2 =(e)=>{
+
+    const frm =document.querySelector(FormLoginSt);
+    console.log('frm', frm)
+     frm.elements.email.value = 'alexFil@ukr.net';
+     frm.elements.password.value ='123456789';
+
+  }
     return (
       <FormLoginSt  onSubmit={handleSubmit} autoComplete="off">
         <LabelFormLoginSt>
@@ -38,7 +47,8 @@ const dispatch = useDispatch();
           <input type="password" name="password" />
         </LabelFormLoginSt>
         <BtnFrmLoginSt type="submit">Log In</BtnFrmLoginSt>
-        <button type="button" onClick={hanhdleClickDefault}>default</button>
+        <button type="button" onClick={hanhdleClickDefault}></button>
+        <button type="button" onClick={hanhdleClickDefault2}></button>
       </FormLoginSt>
     );
   };

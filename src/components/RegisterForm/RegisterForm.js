@@ -42,7 +42,7 @@ export const RegisterForm = () => {
           <input type="password" name="password" />
         </LabelFormRegisterSt>
         <BtnFrmRegSt type="submit">Register</BtnFrmRegSt>
-        <button type="button" onClick={hanhdleClickDefault}>default</button>
+        <button type="button" onClick={hanhdleClickDefault}></button>
       </FormRegisterSt>
     );
   };
