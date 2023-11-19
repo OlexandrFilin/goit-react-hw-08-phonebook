@@ -20,7 +20,7 @@ const setContactsHeader = token => {
   try {
     setContactsHeader(persistedToken);
      const response = await axios.get("/contacts");
-     console.log('response', response)
+    //  console.log('response', response)
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +31,7 @@ const setContactsHeader = token => {
   const addContact = createAsyncThunk("contacts/addContact", async (contact, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log('persistedToken ', persistedToken )
+
 
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
@@ -39,10 +39,10 @@ const setContactsHeader = token => {
     }
     try {
       setContactsHeader(persistedToken);
-      console.log(' axios.defaults.headers.common.Authorization',  axios.defaults.headers.common.Authorization)
-      console.log('contact', contact)
+
       const response = await axios.post("/contacts",contact);
-   return response.data;
+  
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

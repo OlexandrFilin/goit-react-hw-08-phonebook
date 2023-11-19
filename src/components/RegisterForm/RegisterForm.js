@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/auth_operations';
-import {FormRegisterSt,LabelFormRegisterSt} from './RegisterForm.styled'
+import {FormRegisterSt,LabelFormRegisterSt,BtnFrmRegSt} from './RegisterForm.styled'
 export const RegisterForm = () => {
     const dispatch = useDispatch();
   
@@ -21,7 +21,7 @@ export const RegisterForm = () => {
 
     const hanhdleClickDefault =()=>{
       const frm =document.querySelector(FormRegisterSt);
-    console.log('frm', frm);
+
       frm.elements.name.value = 'alex';
        frm.elements.email.value = 'alexFil@ukr.net';
        frm.elements.password.value ='123456789';
@@ -41,7 +41,7 @@ export const RegisterForm = () => {
           Password
           <input type="password" name="password" />
         </LabelFormRegisterSt>
-        <button type="submit">Register</button>
+        <BtnFrmRegSt type="submit">Register</BtnFrmRegSt>
         <button type="button" onClick={hanhdleClickDefault}>default</button>
       </FormRegisterSt>
     );

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './api';
+import { fetchContacts, addContact, deleteContact } from './contacts_operations';
 
 
 const initialState = {
@@ -35,7 +35,7 @@ extraReducers: (builder) => {
     .addCase(addContact.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.contactsUser = action.payload;
+      state.contactsUser = [...state.contactsUser,action.payload];
     })
     .addCase(addContact.rejected, handleRejected)
     .addCase(deleteContact.pending, handlePending)

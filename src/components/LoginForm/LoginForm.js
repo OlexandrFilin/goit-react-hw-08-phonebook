@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { logIn } from '../redux/auth/auth_operations';
-import {FormLoginSt,LabelFormLoginSt} from "./LoginForm.styled"
+import {FormLoginSt,LabelFormLoginSt,BtnFrmLoginSt} from "./LoginForm.styled"
 export const LoginForm = () => {
 
 const dispatch = useDispatch();
@@ -21,7 +21,9 @@ const dispatch = useDispatch();
  
  
    const hanhdleClickDefault =(e)=>{
+
      const frm =document.querySelector(FormLoginSt);
+     console.log('frm', frm)
       frm.elements.email.value = 'alexFil@ukr.net';
       frm.elements.password.value ='123456789';
    }
@@ -35,7 +37,7 @@ const dispatch = useDispatch();
           Password
           <input type="password" name="password" />
         </LabelFormLoginSt>
-        <button type="submit">Log In</button>
+        <BtnFrmLoginSt type="submit">Log In</BtnFrmLoginSt>
         <button type="button" onClick={hanhdleClickDefault}>default</button>
       </FormLoginSt>
     );

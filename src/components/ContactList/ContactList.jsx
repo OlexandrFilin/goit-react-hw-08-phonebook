@@ -4,9 +4,9 @@ import {
    ItemContLst,
 } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteContact } from 'components/redux/api';
-import {getConactFromState} from 'components/redux/contactSlice'
-import { getFilter } from 'components/redux/filterSlice';
+import { deleteContact } from 'components/redux/contacts/contacts_operations';
+import {getConactFromState} from 'components/redux/contacts/contactSlice'
+import { getFilter } from 'components/redux/contacts/filterSlice';
 
 export const ContactList = () => {
 const {contactsUser, isLoading, error } = useSelector(getConactFromState);
@@ -16,7 +16,7 @@ const filterCont  = useSelector(getFilter);
 const getFilterContacts = ()=>{
 
    if (!filterCont.filter) {
-    console.log('contactsUser', contactsUser)
+
     return contactsUser;
     }
     console.log('contactsUser.filter  ', contactsUser.filter(contact=>contact.name.toUpperCase().includes(filterCont.filter.toUpperCase())))
@@ -31,7 +31,7 @@ const dispatch = useDispatch();
 
    return (
     <>
-    {isLoading && <p>Loading tasks...</p>}
+    {isLoading && <p>Loading contacts...</p>}
       {error && <p>{error}</p>}
     <ContactListStyle>
        {getFilterContacts().map(el => {

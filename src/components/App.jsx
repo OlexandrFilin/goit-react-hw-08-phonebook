@@ -52,7 +52,7 @@ const { isRefreshing } = useAuth();
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/conacts" component={<RegisterPage />} />
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
           }
         />
         <Route

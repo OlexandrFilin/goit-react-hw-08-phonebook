@@ -1,9 +1,9 @@
 import React from 'react';
-import { FormUser, LabelForm, InputUser } from './ContactForm.styled';
+import { FormUser, LabelForm, InputUser, HederForm  } from './ContactForm.styled';
 import { useState } from 'react';
-import { addContact, } from 'components/redux/api';
+import { addContact, } from 'components/redux/contacts/contacts_operations';
 import { useDispatch, useSelector } from 'react-redux';
-import {  getConactFromState } from 'components/redux/contactSlice';
+import {  getConactFromState } from 'components/redux/contacts/contactSlice';
 
 export const ContactForm = () => {
   const [isName, setName] = useState('');
@@ -40,6 +40,8 @@ export const ContactForm = () => {
     resetForm();
   };
   return (
+    <>
+    <HederForm >ADD contact</HederForm >
     <FormUser onSubmit={submitForm}>
       <LabelForm>
         Name
@@ -66,5 +68,6 @@ export const ContactForm = () => {
       </LabelForm>
       <button type="submit">Add contact</button>
     </FormUser>
+    </>
   );
 };
